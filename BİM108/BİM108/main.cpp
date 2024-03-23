@@ -20,6 +20,7 @@ int main() {
 		if (max < dizi[j])
 		{
 			max = dizi[j];
+
 		}
 	}
 	cout << "Girdiginiz en buyuk sayi = " << max << endl;
