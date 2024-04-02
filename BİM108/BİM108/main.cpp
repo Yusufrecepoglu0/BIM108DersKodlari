@@ -1,4 +1,5 @@
 #include <iostream>
+#include "otomobil.h"
 
 using namespace std;
 /*
@@ -280,3 +281,160 @@ int main() {
 	tersCevirme(dizi, boyut);
 	return 0;
 }*/
+/*
+void yaz(int sayi) {
+	cout << sayi<< endl;
+}
+
+void yaz(string mesaj) {
+	cout << mesaj << endl;
+}
+
+void yaz(int sayi, string mesaj) {
+	cout << sayi << " " << mesaj << endl;
+}
+
+int main() {
+	yaz("Yusuf");
+	yaz(20);
+	yaz(20, "Yusuf");
+	return 0;
+}*/
+/*
+int topla(int sayi1, int sayi2) {
+	return sayi1 + sayi2;
+}
+
+double topla(double sayi1, double sayi2) {
+	return sayi1 + sayi2;
+}
+int main() {
+	cout << topla(5, 7) << " " << topla(7.2, 9.6);
+	return 0;
+}*/
+/*
+class Sayi
+{
+public:
+	double sayi1, sayi2;
+	double kareToplam() {
+		return pow(sayi1, 2) + pow(sayi2, 2);
+	}
+	double kupToplam() {
+		return pow(sayi1, 3) + pow(sayi2, 3);
+	}
+};
+
+int main() {
+	Sayi sayi;
+	int secim;
+	cout << "Sayilarinizi giriniz:\n ";
+	cin >> sayi.sayi1 >> sayi.sayi2;
+	do
+	{
+		cout << "Islem turunu belirleyin:(1 kare toplam, 2 kup toplam)\n";
+		cin >> secim;
+		if (secim == 1)
+		{
+			cout << sayi.kareToplam() << endl;
+
+		}
+		else if (secim == 2)
+		{
+			cout << sayi.kupToplam() << endl;
+		}
+
+	} while (secim!=1 && secim != 2);
+	return 0;
+}*/
+/*
+class Sayi
+{
+public:
+	double sayi1, sayi2;
+	double alan() {
+		return sayi1* sayi2;
+	}
+	double cevre() {
+		return 2 * (sayi1 + sayi2);
+	}
+};
+
+int main() {
+	Sayi sayi;
+	int secim;
+	cout << "Kenar degerlerinizi giriniz:\n ";
+	cin >> sayi.sayi1 >> sayi.sayi2;
+	do
+	{
+		cout << "Islem turunu belirleyin:(1 alan, 2 cevre)\n";
+		cin >> secim;
+		if (secim == 1)
+		{
+			cout << sayi.alan() << endl;
+
+		}
+		else if (secim == 2)
+		{
+			cout << sayi.cevre() << endl;
+		}
+
+	} while (secim != 1 && secim != 2);
+	return 0;
+}
+*/
+/*
+int main() {
+	Otomobil otomobil1("Audi", "Mor", 2020, 3000000);
+	otomobil1.setOtomobilRenk("Koyu Mor");
+	otomobil1.ruhsatBilgileriniGoster();
+	cout << endl << endl;
+	cout << endl << endl;
+}*/
+/*
+int main() {
+	int sayi = 7;
+	cout << sayi << endl; // sayi degiskenindeki degeri yazar
+	cout << &sayi << endl;  // sayi degiskeninin adresini yazar
+	int* adres = &sayi; // adresi pointera atar
+	cout << adres << endl;  // adresi yazdirir
+	cout << *adres << endl;  // adresin icerigini yazdirir
+	*adres = 8;	// adresin tutugu degeri degistirir
+	cout << *adres << endl;
+	return 0;
+}*/
+/*
+int main() {
+	int dizi[] = { 10,50,20,45 };
+	int* pr = dizi;
+	for (int i = 0; i < 4; i++)
+	{
+		cout << "Dizi[" << i << "]; " << pr << endl;
+		cout << "Dizi[" << i << "]; " << *pr << endl << endl;
+		pr++;
+	}
+	return 0;
+}*/
+/*
+class Personel
+{
+public:
+	string personelAdi, personelSoyadi;
+	int personelYasi;
+	void goruntule(string personelAdi, string personelSoyadi, int personelYasi) {
+		this->personelAdi = personelAdi;
+		this->personelSoyadi = personelSoyadi;
+		this->personelYasi = personelYasi;
+		cout << personelAdi << " " << personelSoyadi << " " << personelYasi << endl;
+	}
+
+};
+
+int main() {
+	Personel personel1, personel2, personel3;
+	personel1.goruntule("Yusuf", "Recepoglu", 20);
+	personel2.goruntule("Yusuf", "Recepoglu", 20);
+	personel3.goruntule("Yusuf", "Recepoglu", 20);
+
+}*/
+
