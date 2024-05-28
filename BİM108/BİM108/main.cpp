@@ -573,7 +573,7 @@ int main() {
 	return 0;
 }*/
 /*
-class Kitaplık
+class KitaplÃ½k
 {
 private:
 	string yazar, kitapIsmi;
@@ -594,7 +594,7 @@ int main() {
 	cin >> yazar;
 	cout << "Kitap adini giriniz; \n";
 	cin >> kitapIsmi;
-	Kitaplık kitap1;
+	KitaplÃ½k kitap1;
 	kitap1.setBilgiGiris(yazar, kitapIsmi);
 	kitap1.getBilgicikis();
 	return 0;
@@ -667,7 +667,7 @@ int main() {
 	} while (secim!=4);
 	return 0;
 }*/
-///teknoloji,tekstil, gıda
+///teknoloji,tekstil, gÃ½da
 /*
 class Urun
 {
@@ -874,7 +874,7 @@ int main() {
 	Gida urun6( "Gullac", 100, 0.250,"Tatli");
 	urun6.KDV(); 
 */
-//örnek kod
+//Ã¶rnek kod
 /*
 #include <iostream>
 #include <string>
@@ -1102,16 +1102,17 @@ public:
 	}
 
 	void yeniGiris() {
-		cout << "Arac sahibinin adi:\t\t\t";
-		cin >> arac[i].kisi_ad;
-		cout << "Arac sahibinin soyadi:\t\t\t";
-		cin >> arac[i].kisi_soyad;
-		cout << "Arac sahibinin iletisim numarasi:\t";
-		cin >> arac[i].kisi_tel;
-		cout << "Arac plakasi:\t\t\t\t";
-		cin >> arac[i].plaka;
-		cout << endl;
-
+		cin.ignore();
+	        cout << "Arac sahibinin adi:\t\t\t";
+	        getline(cin, arac[i].kisi_ad);
+	        cout << "Arac sahibinin soyadi:\t\t\t";
+	        getline(cin, arac[i].kisi_soyad);
+	        cout << "Arac sahibinin iletisim numarasi:\t";
+	        getline(cin, arac[i].kisi_tel);
+	        cout << "Arac plakasi:\t\t\t\t";
+	        getline(cin, arac[i].plaka);
+	        cout << endl;
+		
 		kullanim_sayisi++;
 		otoparkdaki_arac_sayisi++;
 
@@ -1182,8 +1183,8 @@ public:
 
 void gizliGiris(string& giris) {
 	char ch;
-	while ((ch = _getch()) != 13) { // 13 ASCII kodu Enter tuşudur.
-		if (ch == 8) { // 8 ASCII kodu Backspace tuşudur.
+	while ((ch = _getch()) != 13) { // 13 ASCII kodu Enter tuÃ¾udur.
+		if (ch == 8) { // 8 ASCII kodu Backspace tuÃ¾udur.
 			if (!giris.empty()) {
 				cout << "\b \b";
 				giris.pop_back();
