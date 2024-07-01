@@ -1046,7 +1046,7 @@ int main() {
 
 }
 */
-
+/*
 class Arac
 {
 public:
@@ -1218,5 +1218,314 @@ int main() {
 		system("cls");
 	} while (id!=girisId || sif!=girisSif);
 	calisan.menu();
+	return 0;
+}
+*/
+/*
+// ofstream: yazma
+// ifstream: okuma
+int main() {
+	ofstream yazmaDosyasi; // dosyaya yazma islemi
+	// ofstream yazmaDosyasi("C:\\Users\\yusuf\\Desktop\\Data.txt"); kisa yol
+	yazmaDosyasi.open("C:\\Users\\yusuf\\Desktop\\Data.txt");
+	yazmaDosyasi << "Hello World!" << endl;
+	yazmaDosyasi.close();
+}*/
+/*
+int main() {
+	ifstream okumaDosyasi("C:\\Users\\yusuf\\Desktop\\Data.txt");
+	string satir;
+	while (getline(okumaDosyasi, satir))
+	{
+		cout << satir << endl;
+	}
+}*/
+
+//DENEME
+/*
+void kayit() {
+	string name, password;
+	cin.ignore();
+	cout << "Kullanici adinizi belirleyiniz:\t";
+	getline(cin, name);
+	ofstream yazmaDosyasi1("C:\\Users\\yusuf\\Desktop\\User Name.txt");
+	yazmaDosyasi1 << name << endl;
+	cout << "Sifrenizi belirleyiniz:\t";
+	getline(cin, password);
+	ofstream yazmaDosyasi2("C:\\Users\\yusuf\\Desktop\\User Password.txt");
+	yazmaDosyasi2 << password << endl;
+}
+
+void giris() {
+	string name, password;
+	cout << "Kullanici adinizi giriniz:\t";
+	cin >> name;
+	cout << "Sifrenizi giriniz:\t";
+	cin >> password;
+	ifstream okumaDosyasi1("C:\\Users\\yusuf\\Desktop\\User Name.txt");
+	ifstream okumaDosyasi2("C:\\Users\\yusuf\\Desktop\\User Password.txt");
+	string satir1, satir2;
+	do
+	{
+		if (name == satir1)
+		{
+			do {
+				if (password == satir2)
+				{
+					cout << "Giris basarili!\n";
+					break;
+				}
+			} while (getline(okumaDosyasi2, satir2));
+		}
+
+	} while (getline(okumaDosyasi1, satir1));
+}
+int main() {
+	int secim;
+	cout << "Sisteme hos geldiniz!\n";
+	cout << "1-) Kayit ol\t2-) Giris yap\n";
+	cin >> secim;
+	switch (secim)
+	{
+	case 1:
+		kayit();
+		break;
+	case 2:
+		giris();
+		break;
+	default:
+		cout << "Hatali secim!!\n";
+		break;
+	}
+}
+*/
+/*
+int main() {
+	ifstream file("C:\\Users\\yusuf\\Desktop\\Demo2.txt");
+	if (!file.is_open())
+	{
+		cout << "Dosya bulunamdi!!!\n\n";
+		exit(0);
+	}
+}*/
+/*
+int main() {
+	string personelAdi, personelSoyadi;
+	float maas; 
+	int yas, personelSayisi, personelSicilNo;
+	ofstream file("C:\\Users\\yusuf\\Desktop\\Data.txt");
+	cout << "Personel sayinizi giriniz: ";
+	cin >> personelSayisi;
+	for (int i = 0; i < personelSayisi; i++)
+	{
+		cout << "Personel sicil numarasini giriniz: ";
+		cin >> personelSicilNo;
+		cout << "Personel adini giriniz: ";
+		cin >> personelAdi;
+		cout << "Personel soyadini giriniz: ";
+		cin >> personelSoyadi;
+		cout << "Personel yasini giriniz: ";
+		cin >> yas;
+		cout << "Personel maasini giriniz: ";
+		cin >> maas;
+		file << personelSicilNo << "\t" << personelAdi << "\t" << personelSoyadi << "\t" << yas << "\t" << maas;
+	}
+	file.close();
+	system("cls");
+	ifstream fileOku("C:\\Users\\yusuf\\Desktop\\Data.txt");
+	while (fileOku >> personelSicilNo >> personelAdi >> personelSoyadi >> yas >> maas)
+	{
+		maas += maas * 0, 1;
+		cout << personelSicilNo << "\t" << personelAdi << "\t" << personelSoyadi << "\t" << yas << "\t" << maas << endl;
+	}
+	fileOku.close();
+
+	return 0;
+}*/
+class Otel
+{
+public:
+	void temizle() {
+		system("cls");
+		cout << "Ana menuye donmek icin bir tusa basiniz\n";
+		system("pause");
+		otel1.menu();
+	}
+	void odaEkleme() {
+		system("cls");
+		ofstream odaDosyasi("C:\\Users\\yusuf\\Desktop\\Oda.txt", ios::app);
+		string no, kat, yatakSayisi;
+		float fiyat;
+		cout << "Oda numarasi: ";
+		cin >> no;
+		cout << "Odanin bulundugu kat: ";
+		cin >> kat;
+		cout << "Odanin yatak sayisi: ";
+		cin >> yatakSayisi;
+		cout << "Odanin gunluk fiyati: ";
+		cin >> fiyat;
+		odaDosyasi	<< "Oda numarasi: " << no << endl 
+					<< "Oda kati: " << kat << endl 
+					<< "Oda yatak sayisi: " << yatakSayisi << endl 
+					<<  "Oda gunluk fiyati: " << fiyat << endl << endl;
+		odaDosyasi.close();		 
+		temizle();
+	}
+	void odaSilme() {
+		system("cls");
+		ifstream odaDosyasi("C:\\Users\\yusuf\\Desktop\\Oda.txt");
+		ofstream temp("C:\\Users\\yusuf\\Desktop\\temp.txt");
+		string delNo, satir;
+		bool found = false;
+		cout << "Silmek istediginiz oda numarasini giriniz: ";
+		cin >> delNo;
+
+		while (getline(odaDosyasi, satir))
+		{
+			if (satir.find("Oda numarasi: " + delNo) != string::npos) {
+				for (int i = 0; i < 3; i++) {
+					getline(odaDosyasi, satir);
+				}
+				found = true;
+			}
+			else
+			{
+				temp << satir << endl;
+				for (int i = 0; i < 3; i++) {
+					getline(odaDosyasi, satir);
+				}
+			}
+		}
+		odaDosyasi.close();
+		temp.close();
+
+		if (found)
+		{
+			remove("C:\\Users\\yusuf\\Desktop\\Oda.txt");
+			rename("C:\\Users\\yusuf\\Desktop\\temp.txt", "C:\\Users\\yusuf\\Desktop\\Oda.txt");
+			
+			cout << "Oda Silindi!!!\n";
+		}
+		else
+		{
+			cout << "Oda Bulunamadi\n";
+
+		}
+		system("pause");
+		temizle();
+	}
+	void odaListeleme() { 
+		system("cls");
+		ifstream odaOkumaDosyasi("C:\\Users\\yusuf\\Desktop\\Oda.txt"); 
+		string line;
+		while (getline(odaOkumaDosyasi, line)) {
+			cout << line << endl;
+		}
+		odaOkumaDosyasi.close();
+		system("pause");
+	}
+	void odaMenu() {
+		system("cls");
+		cout << "Oda Islemleri\n1-) Oda Ekle\n2-) Oda Sil\n3-) Oda Listesi\n0-) Ust Menu\n";
+		int secimOda;
+		cin >> secimOda;
+		switch (secimOda)
+		{
+		case 1: odaEkleme(); break;
+		case 2: odaSilme(); break;
+		case 3: odaListeleme(); break;
+		case 0: menu(); break;
+		default:
+			cout << "Gecersiz Secim!!!\n";
+			break;
+		}
+	}
+	void musteriEkleme() {
+		system("cls");
+		ofstream musteriDosyasi("C:\\Users\\yusuf\\Desktop\\Musteri.txt");
+		string musteriAdi, musteriSoyadi, musteriTel, musteriOdaNo;
+		cout << "Musteri adini giriniz: ";
+		cin >> musteriAdi;
+		cout << "Musteri soyadini giriniz: ";
+		cin >> musteriSoyadi;
+		cout << "Musteri telefonunu giriniz: ";
+		cin >> musteriTel;
+		cout << "Musteri oda numarasini giriniz: ";
+		cin >> musteriOdaNo;
+
+
+		temizle();
+	}
+	void musteriSilme() {
+		system("cls");
+
+	}
+	void musteriListeleme() {
+		system("cls");
+
+	}
+	void musteriMenu() {
+		system("cls");
+		cout << "Musteri Islemleri\n1-) Musteri Ekleme\n2-) Musteri Silme\n3-) Musteri Listesi\n0-) Ust Menu\n";
+		int secimMusteri{};
+		switch (secimMusteri)
+		{
+		case 1: musteriEkleme(); break;
+		case 2: musteriSilme(); break;
+		case 3: musteriListeleme(); break;
+		default:
+			cout << "Gecersiz Secim!!!\n";
+			break;
+		}
+		temizle();
+	}
+	void rezervasyonEkleme() {
+		system("cls");
+
+	}
+	void rezervasyonSilme() {
+		system("cls");
+
+	}
+	void rezervasyonListeleme() {
+		system("cls");
+
+	}
+	void rezervasyonMenu() {
+		system("cls");
+		cout << "Rezervasyon Islemleri\n1-) Rezervasyon Ekleme\n2-) Rezervasyon Silme\n3-) Rezervasyon Listesi\n0-) Ust Menu\n";
+		int secimMusteri{};
+		switch (secimMusteri)
+		{
+		case 1: rezervasyonEkleme(); break;
+		case 2: rezervasyonSilme(); break;
+		case 3: rezervasyonListeleme(); break;
+		default:
+			cout << "Gecersiz Secim!!!\n";
+			break;
+		}
+		temizle();
+	}
+	void menu() {
+		system("cls");
+		cout << "OTEL ISLEMLERI\n1-) Oda Islemleri\n2-) Musteri Islemleri\n3-) Oda Kayit Islemi\n0-) Cikis\n";
+		int secim;
+		cin >> secim;
+		switch (secim)
+		{
+		case 1: odaMenu(); break;
+		case 2: musteriMenu(); break;
+		case 3: rezervasyonMenu(); break;
+		case 0: exit(0); break;
+		default:
+			cout << "Gecersiz secim";
+			break;
+		}
+		temizle();
+	}
+}otel1;
+
+int main() {
+	otel1.menu();
 	return 0;
 }
